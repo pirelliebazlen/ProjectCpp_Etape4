@@ -1,7 +1,7 @@
 #include "Car.h"
 #include "Model.h"
 #include "Option.h"
-#include <cstring>
+#include <string>
 #define DEBUG
 using namespace std;
 
@@ -200,6 +200,7 @@ float Car::getPrice()
 }
 Car& Car::operator=(const Car& c)
 {
+
 
 	setName(c.getName());
 	setModel(c.getModel());

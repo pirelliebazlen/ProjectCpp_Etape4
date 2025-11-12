@@ -2,14 +2,14 @@
 using namespace std;
 
 #include "Person.h"
-/*#include "Client.h"
-#include "Employee.h"*/
+#include "Client.h"
+#include "Employee.h"
 
 int  Menu();
 void Essai1();
-/*void Essai2();
+void Essai2();
 void Essai3();
-void Essai4();
+/*void Essai4();
 void Essai5();
 void Essai6();*/
 
@@ -25,9 +25,9 @@ int main()
     switch(choix)
     {
       case 1 : Essai1(); break;
-      /*case 2 : Essai2(); break;
+      case 2 : Essai2(); break;
       case 3 : Essai3(); break;
-      case 4 : Essai4(); break;
+      /*case 4 : Essai4(); break;
       case 5 : Essai5(); break;
       case 6 : Essai6(); break;*/
       default : fini = true ; break;
@@ -101,7 +101,7 @@ void Essai1()
 // A FAIRE : la classe abstraite Actor qui hérite de Person et qui possède un id (int)
 //           et les deux méthodes virtuelles pures tuple() et toString()
 //           la classe Client qui herite de Actor, contenant en plus un numero de gsm (string)
-/*void Essai2()
+void Essai2()
 {
   cout << "----- 2.1 Test du constructeur par defaut ----------------------------------" << endl;
   Client c1;
@@ -148,13 +148,13 @@ void Essai1()
   cout << "--> Execution du code c3 = c2; :" << endl;
   c3 = c2;
   cout << "--> c3 = " << c3 << endl;
-}*/
+}
 
 /***********************************************************************************************/
 // A FAIRE : la classe Employee qui herite de Actor
 //           contenant en plus une fonction (string), un login (string) et un mot de passe (string)
 //           deux variables statiques constantes SELLER et ADMINISTRATIVE
-/*void Essai3()
+void Essai3()
 {
   cout << "----- 3.1 Test du constructeur par defaut ----------------------------------" << endl;
   Employee e1;
@@ -212,7 +212,7 @@ void Essai1()
   cout << "--> Execution du code e3 = e2; :" << endl;
   e3 = e2;
   cout << "--> e3 = " << e3 << endl;
-}*/
+}
 
 /******************************************************************************************/
 // A FAIRE : normalement rien dans vos classes...

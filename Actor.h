@@ -5,7 +5,7 @@
 using namespace std;
 #include "Person.h"
 
-namespace carconfig {
+//namespace carconfig {
 
 	class Actor : public Person
 	{
@@ -14,13 +14,11 @@ namespace carconfig {
 
 
 		public:
-			Actor();
-			Actor(string lName, string fName, int id);
-			Actor(const Actor& ac);
-			~Actor();
-			Actor& operator=(const Actor& ac);
+			void setId(const int Newid);
+			int getId();
+			Actor& operator=(const int newid);
 			virtual void tuple();
 			virtual void toString();
 	};
-}
+//}
 #endif
