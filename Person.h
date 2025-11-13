@@ -24,7 +24,7 @@ using namespace std;
 			void setFirstName(const string Fname);
 			string getLastName()const;
 			string getFirstName()const;
-			void display() const;
+			virtual void display() const;
 
 			Person& operator=(const Person& per);
 

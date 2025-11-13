@@ -14,11 +14,16 @@ using namespace std;
 
 
 		public:
+			Actor();
+			Actor(int id, string Lname, string Fname);
+			Actor(const Actor& ac);
+			~Actor();
 			void setId(const int Newid);
-			int getId();
+			int getId() const;
 			Actor& operator=(const int newid);
-			virtual void tuple();
-			virtual void toString();
+			void display() const override;
+			virtual string tuple() const =0;
+			virtual string toString() const=0;
 	};
 //}
 #endif

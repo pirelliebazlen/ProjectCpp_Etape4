@@ -3,6 +3,7 @@
 #include "Actor.h"
 #include <string>
 #include <iostream>
+#include "Actor.h"
 using namespace std;
 
 enum role{Vendeur, Administracteur};
@@ -15,20 +16,21 @@ enum role{Vendeur, Administracteur};
 			string role;
 		public:
 			Employee();
-			Employee(const string log, const string passwrd);
+			Employee(string lname, string fname, int id, const string log, const string rol) ;
 			Employee(const Employee& employe);
 			~Employee();
 
 			void setLogin(const string log);
 			void setPassword(const string mdp);
 			void setRole(const string rol);
-			string getRole() const;
-			string getGsm() const;
 			string getLogin() const;
 			string* getPassword() const;
-
-			
+			string getRole() const;
+			void display() const override ;
 			void resetPassword();
+			string tuple() const override;
+			string toString() const override;
+			
 			Employee& operator=(const Employee& employe);
 			friend ostream& operator<<(ostream& s, const Employee& employe);
 

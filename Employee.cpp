@@ -2,6 +2,7 @@
 #include <string>
 #define DEBUG
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 
@@ -11,31 +12,30 @@ using namespace std;
 	/******************************Constructeur par defaut*******************************/
 	/************************************************************************************/
 
-	Employee:: Employee()
+	Employee:: Employee() : Actor()
 	{
 		#ifdef DEBUG
 		//cout<<">> Employee: constructeur par defaut<<"<< endl;
 		#endif
-		password = nullptr;
+		setPassword(nullptr);
 	}
 	/************************************************************************************/
 	/******************************Constructeur d'unitialisation*************************/
 	/************************************************************************************/
 
-	Employee:: Employee(const string log, const string passwrd)
+	Employee:: Employee(string lname, string fname, int id, const string log, const string rol) : Actor(id, lname, fname)
 	{
 		#ifdef DEBUG
 		//cout<<">> Employee : Constructeur d'initialisation<<"<< endl;
 		#endif
 		setLogin(log);
-		setPassword(passwrd);
 
 	}
 	/************************************************************************************/
 	/******************************Constructeur de copie*********************************/
 	/************************************************************************************/
 
-	Employee:: Employee(const Employee& employe)
+	Employee:: Employee(const Employee& employe) : Actor(employe)
 	{
 		#ifdef DEBUG
 		//cout<<">> Employee: constructeur de copie<<"<< endl;
@@ -51,11 +51,11 @@ using namespace std;
 
 	Employee:: ~Employee()
 	{
-		//if(password != nullptr)
-		//{
+		if(password != nullptr)
+		{
 			delete password;
 			password =nullptr;
-		//}
+		}
 	}
 
 	/************************************************************************************/
@@ -97,12 +97,46 @@ using namespace std;
 	{
 		password = nullptr;
 	}
-
-	void Employee:: fonction(string rol)
+	void Employee:: display() const
 	{
-		role = rol;
+		Actor:: display();
+		cout<< "Login : " << login<< endl;
+		if(password!=nullptr)
+		{
+			cout<<"password : " << password<< endl;
+		}
+		else
+		{
+			cout<<"password : Pas de password" <<endl;
+		}
+		cout<<"Role : "<< role<< endl;
 	}
+	string Employee:: toString() const
+	{
+		ostringstream s;
+		string rol;
+		rol = getRole();
+		if(rol== "Vendeur")
+		{
+			rol = "V";
+		}
+		else
+		{
+			rol = "A";
+		}
+		s << "<< [" << rol<< getId()<< "]" << getLastName() << getFirstName()<<" >>"<< endl;
 
+
+		return s.str();
+	}
+	string Employee:: tuple() const
+	{
+		ostringstream s;
+			
+		s<< getId()<<";"<< getLastName() <<";"<< getFirstName()<<";"<<getRole()<<" >>"<< endl;
+
+		return s.str();
+	}
 	Employee& Employee:: operator=(const Employee& employe)
 	{
 		setLogin(employe.getLogin());
@@ -112,7 +146,7 @@ using namespace std;
 	}
 	ostream& operator<<(ostream& s, const Employee& employe)
 	{
-		s << employe.getLogin() << endl << employe.getPassword() <<endl;
+		s << employe<< endl << employe<<endl;
 		return s;
 	}
 
